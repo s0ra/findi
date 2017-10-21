@@ -75,7 +75,6 @@ for sentence in sentences:
                 word = s_adj[len(s_adj)-1]
                 if word[len(word)-2:] in adj:
                         adjective = word
-                        break
                 print("Definition of " + adjective + ' ' + keyword[0] + ":" + sentence + '\n')
             elif s[i-3:i-1] == "Of":
                 s_of = s[:i-1].split()
