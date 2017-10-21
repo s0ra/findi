@@ -71,21 +71,16 @@ for sentence in sentences:
             adjective = ""
             i = s.find(keyword[0])
             if s[i-3:i-1] in adj:
-                for word in reversed(s[:i-1].split()):
-                    if word[len(word)-2:] in adj:
+                s_adj = s[:i-1].split()
+                word = s_adj[len(s_adj)-1]
+                if word[len(word)-2:] in adj:
                         adjective = word
                         break
                 print("Definition of " + adjective + ' ' + keyword[0] + ":" + sentence + '\n')
             elif s[i-3:i-1] == "Of":
-                last = ""
-                whichof = ""
-                for word in reversed(s[:i-1].split()):
-                    if word == "Of":
-                        whichof = last + " of"
-                        break
-                    last = word
-                    
-                print("Definition of " + whichof + ' ' + keyword[0] + ":" + sentence + '\n')
+                s_of = s[:i-1].split()
+                whichof = s_of[len(s_of)-2]
+                print("Definition of " + whichof + ' of ' + keyword[0] + ":" + sentence + '\n')
             else:   
                 print("Definition of " + keyword[0] + ":" + sentence + '\n')
             break
