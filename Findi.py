@@ -71,7 +71,7 @@ for sentence in sentences:
             adjective = ""
             i = s.find(keyword[0])
             if s[i-3:i-1] in adj:
-                for word in s[:i-1].split():
+                for word in reversed(s[:i-1].split()):
                     if word[len(word)-2:] in adj:
                         adjective = word
                         break
@@ -79,7 +79,7 @@ for sentence in sentences:
             elif s[i-3:i-1] == "Of":
                 last = ""
                 whichof = ""
-                for word in s[:i-1].split():
+                for word in reversed(s[:i-1].split()):
                     if word == "Of":
                         whichof = last + " of"
                         break
