@@ -1,6 +1,6 @@
-text1 = open("example/definition.txt", 'r', encoding='UTF-8', newline='').read() # Finding defintions from Definition page in Wikipedia
-
-text = text1
+file = open("example/definition.txt", 'r', encoding='UTF-8', newline='')
+text = file.read() # Finding defintions from Definition page in Wikipedia
+file.close()
 
 nobracket = ""
 
