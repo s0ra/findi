@@ -25,7 +25,17 @@ last = "non-period"
 sentences = [""]
 titles = ["Mrs.", "Mr.", "Dr.", "Mx.", "Ms."]
 endsyms = ['.', '!', '?']
-commons = ["How", "Does", "Other", "People", "Thing", "Chapter", "About", "Do", "Also", "To", "I", "You", "We", "They", "On", "One", "He", "She", "It", "Us", "The", "That", "This", "Than", "More", "Not", "By", "Yes", "No", "A", "An", "In", "At", "With", "Be", "Is", "Are", "Was", "Were", "Been", "Its", "Who", "Whose", "Where", "What", "Which", "When", "Whose", "As", "Of", "Their", "For", "While", "Since", "And", "Or", "Either", "Why", "Her", "His", "Them", "Him", "Hers", "There"]
+commons = ["How", "Does", "Other", "People", "Thing",
+           "Chapter", "About", "Do", "Also", "To", "I",
+           "You", "We", "They", "On", "One", "He", "She",
+           "It", "Us", "The", "That", "This", "Than",
+           "More", "Not", "By", "Yes", "No", "A", "An",
+           "In", "At", "With", "Be", "Is", "Are", "Was",
+           "Were", "Been", "Its", "Who", "Whose", "Where",
+           "What", "Which", "When", "Whose", "As", "Of",
+           "Their", "For", "While", "Since", "And", "Or",
+           "Either", "Why", "Her", "His", "Them", "Him",
+           "Hers", "There"]
 defined = ["Is", "Are"]
 adj = ["al", "ic", "ed", "ve", "er"]
 
@@ -67,7 +77,9 @@ for sentence in sentences:
     for word in sentence.split():
         s += ' ' + word.capitalize()
     for keyword in mostkeywords:
-        if keyword[0] in s.split() and (defined[0] in s.split() or defined[1] in s.split()) and (s.find(defined[0]) - s.find(keyword[0]) == len(keyword[0]) + 1 or s.find(defined[1]) - s.find(keyword[0]) == len(keyword[0]) + 1):
+        has_key_is = s.find(defined[0]) - s.find(keyword[0]) == len(keyword[0]) + 1
+        has_key_are = s.find(defined[1]) - s.find(keyword[0]) == len(keyword[0]) + 1
+        if has_key_is or has_key_are:            
             adjective = ""
             i = s.find(keyword[0])
             if s[i-3:i-1] in adj:
