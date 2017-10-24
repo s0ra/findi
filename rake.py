@@ -11,6 +11,7 @@ class RAKE:
     def __init__(self, text, stoplist):
         self.__text = text
         self.__stoplist = stoplist
+        self.getresult()
             
     def getresult(self, toppercent=1.0/3.0):
         self.__phrases = self.__split2phrases(self.__text, self.__stoplist)
